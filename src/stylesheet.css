@@ -1,0 +1,101 @@
+/* Global and shared styling */
+body, .application {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #f2f2f2;
+  overflow-x: visible;
+  overflow-y: hidden;
+}
+.input, .output {
+  display: inline-block;
+  width: calc(50% - 2px);
+  vertical-align: top;
+  text-align: left;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+h1, h2 {
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: underline;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+.input .heading, .output .heading {
+  display: block;
+  height: 14px;
+  margin: 0px;
+  padding: 10px;
+}
+.input .heading h2, .output .footer h2 {
+  color: #546E7A;
+  font-size: 12px;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+/* Styling specific to the input */
+.input .heading {
+  background-color: #273238;
+  color: #f2f2f2;
+}
+.input .code {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.input .CodeMirror {
+  height: 100%;
+}
+
+/* Styling specific to the output */
+.output .heading {
+  background-color: #f2f2f2;
+  color: #273238;
+}
+.output .logs {
+  display: block;
+  padding-left: 10px;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+}
+.output .logs::-webkit-scrollbar {
+  width: 8px;
+}
+.output .logs::-webkit-scrollbar-track {
+  background: transparent;
+}
+.output .logs::-webkit-scrollbar-thumb {
+  background: #273238;
+}
+.output .logs::-webkit-scrollbar-thumb:hover {
+  background: #27323f;
+}
+.output .logs .log, .code {
+  font-family: monospace;
+  font-size: 14px;
+  text-align: left;
+  color: #273238;
+  white-space: pre-wrap;
+  word-wrap: normal;
+}
+.output .logs .log {
+  margin-left: 10px;
+  display: block;
+}
+.output .logs .log[level=error] {
+  color: red;
+}
+.output .footer h2 a {
+  text-decoration: none;
+  color: #27323f;
+}
