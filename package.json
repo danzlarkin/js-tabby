@@ -1,12 +1,12 @@
 {
-  "name": "js-tabby",
+  "name": "jscodepad",
   "description": "A Chrome extension to replace your new tabs with a simple javascript codepad and console",
   "version": "1.0.0",
   "author": "Daniel Larkin <daniel@larkin.nz>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --port=4001",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "browserslist": [
