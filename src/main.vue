@@ -10,6 +10,7 @@
     <section class="output">
       <section class="heading">
         <h1>output</h1>
+        <h2>ctrl + L to clear</h2>
       </section>
       <section class="logs">
         <span class="log" v-for="code of output" :level="code.level">{{ code.message }}</span>

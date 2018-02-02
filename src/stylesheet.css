@@ -36,7 +36,7 @@ h1, h2 {
   margin: 0px;
   padding: 10px;
 }
-.input .heading h2, .output .footer h2 {
+.input .heading h2, .output .heading h2, .output .footer h2 {
   color: #546E7A;
   font-size: 12px;
   text-decoration: none;

@@ -16,6 +16,9 @@ export default {
           'Ctrl-Enter': () => {
             // Execute the code from the input
             this.execute();
+          },
+          'Ctrl-L': () => {
+              this.clear();
           }
         }
       }
@@ -30,6 +33,9 @@ export default {
         // Log any errors to the console
         this.log('error', error);
       }
+    },
+    clear() {
+      this.output = [];
     },
     log(level, ...messages) {
       for (let message of messages) {
