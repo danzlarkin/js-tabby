@@ -1,5 +1,5 @@
 {
-  "name": "jscodepad",
+  "name": "js-tabby",
   "description": "A Chrome extension to replace your new tabs with a simple javascript codepad and console",
   "version": "1.0.0",
   "author": "Daniel Larkin <daniel@larkin.nz>",
