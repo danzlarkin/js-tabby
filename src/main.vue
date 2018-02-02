@@ -11,6 +11,10 @@
       <section class="heading">
         <h1>output</h1>
         <h2>ctrl + L to clear</h2>
+          <span class="keep-right">
+              <input id="preserve-log" type="checkbox" title="Preserve log" v-model="preserve" />
+              <label for="preserve-log">Preserve log</label>
+          </span>
       </section>
       <section class="logs">
         <span class="log" v-for="code of output" :level="code.level">{{ code.message }}</span>

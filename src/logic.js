@@ -3,7 +3,8 @@ export default {
   data() {
     return {
       input: '// Write your code here...\nconst message = \'Hello World\';\nconsole.log(message);',
-      output: []
+      output: [],
+      preserve: true
     }
   },
   computed: {
@@ -42,6 +43,10 @@ export default {
         // Parse any error messages which have been recieved
         if (typeof message != 'string' && message.stack && message.message) {
           message = message.stack.split(':')[0]+': '+message.message;
+        }
+        // Remove current logs if preserve log is turned off
+        if (!this.preserve) {
+            this.output = [];
         }
         // Add the console log to the console output
         this.output.push({
