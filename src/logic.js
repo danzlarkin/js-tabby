@@ -2,7 +2,7 @@ export default {
   name: 'application',
   data() {
     return {
-      input: '// Write your code here...\nconst message = \'Hello World\';\nconsole.log(message);',
+      input: '/**\n\n  Latest updates:\n  - Included support for math.js (https://mathjs.org/)\n      e.g math.cross([0, 1, 0], [1, 0, 0])\n\n\**/\n\n// Write your code here...\nconst message = \'Hello World\';\nconsole.log(message);',
       output: [],
       preserve: true
     }
@@ -19,7 +19,7 @@ export default {
             this.execute();
           },
           'Ctrl-L': () => {
-              this.clear();
+            this.clear();
           }
         }
       }
