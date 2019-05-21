@@ -4,7 +4,9 @@ export default {
     return {
       input: '// Write your code here...\nconst message = \'Hello World\';\nconsole.log(message);',
       output: [],
-      preserve: true
+      preserve: true,
+      times: [],
+      isTimingSupported: window && window.performance
     }
   },
   computed: {
@@ -19,7 +21,7 @@ export default {
             this.execute();
           },
           'Ctrl-L': () => {
-              this.clear();
+            this.clear();
           }
         }
       }
@@ -28,8 +30,12 @@ export default {
   methods: {
     execute() {
       try {
+        const input = this.input
+            .replace(/console.log\(/g, 'this.log(\'standard\', ')
+            .replace(/console.time\(/g, 'this.time(\'start\', ')
+            .replace(/console.timeEnd\(/g, 'this.time(\'end\', ');
         // Execute the code from the input, and parse all console.log to use the log function
-        eval(this.input.replace(/console.log\(/g, 'this.log(\'standard\', '));
+        eval(input);
       } catch (error) {
         // Log any errors to the console
         this.log('error', error);
@@ -56,6 +62,20 @@ export default {
       }
       // Scroll to the bottom of the console output
       this.scroll();
+    },
+    time(state, name) {
+      if (!this.isTimingSupported) {
+        this.log('Timing is unsupported in your browser');
+        return;
+      }
+      switch(state) {
+        case 'start':
+          this.times[name] = window.performance.now();
+          break;
+        case 'end':
+          this.log('standard', name, window.performance.now() - this.times[name]);
+          delete this.times[name];
+      }
     },
     scroll() {
       const logs = this.$el.children[1].children[1];
