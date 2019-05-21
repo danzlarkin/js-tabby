@@ -2,8 +2,7 @@
     "name": "JS Tabby",
     "description": "A Chrome extension to replace your new tabs with a simple javascript codepad and console",
     "author": "Daniel Larkin <daniel@larkin.nz>",
-    "version": "1.0.2",
-    "default_locale": "en",
+    "version": "1.0.4",
     "permissions" : ["management"],
     "chrome_url_overrides" : {
         "newtab": "index.html"

@@ -1,7 +1,7 @@
 {
   "name": "js-tabby",
   "description": "A Chrome extension to replace your new tabs with a simple javascript codepad and console",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "author": "Daniel Larkin <daniel@larkin.nz>",
   "license": "MIT",
   "private": true,
@@ -15,9 +15,9 @@
     "not ie <= 8"
   ],
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
@@ -27,6 +27,7 @@
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.14"
   }
 }
