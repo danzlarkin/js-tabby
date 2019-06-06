@@ -36,7 +36,7 @@ h1, h2 {
   margin: 0px;
   padding: 10px;
 }
-.input .heading h2, .output .heading h2, .output .footer h2 {
+.input .heading h2, .input .footer h2, .output .heading h2, .output .footer h2 {
   color: #546E7A;
   font-size: 12px;
   text-decoration: none;
@@ -51,10 +51,24 @@ h1, h2 {
 .input .code {
   display: block;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 60px);
 }
 .input .CodeMirror {
   height: 100%;
+}
+.input .footer {
+  box-sizing: border-box;
+  height: 28px;
+  width: 100%;
+  background-color: #263238;
+}
+
+.input .footer .execution-time {
+  color: #f2f2f2;
+  font-style: italic;
+  font-size: 10px;
+  padding-left: 40px;
+  line-height: 14px;
 }
 
 /* Styling specific to the output */
@@ -64,11 +78,11 @@ h1, h2 {
 }
 
 .output .heading .keep-right {
-    float: right;
-    color: #546E7A;
-    font-size: 11px;
-    text-decoration: none;
-    font-family: monospace;
+  float: right;
+  color: #546E7A;
+  font-size: 11px;
+  text-decoration: none;
+  font-family: monospace;
 }
 
 .output .logs {
@@ -100,6 +114,11 @@ h1, h2 {
 .output .logs .log {
   margin-left: 10px;
   display: block;
+}
+.output .logs .log[level=performance] {
+  font-style: italic;
+  color: purple;
+  font-size: 12px;
 }
 .output .logs .log[level=error] {
   color: red;

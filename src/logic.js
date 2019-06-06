@@ -2,9 +2,10 @@ export default {
   name: 'application',
   data() {
     return {
-      input: '/**\n\n  Latest updates:\n  - Included support for math.js (https://mathjs.org/)\n      e.g math.cross([0, 1, 0], [1, 0, 0])\n\n\**/\n\n// Write your code here...\nconst message = \'Hello World\';\nconsole.log(message);',
+      input: '/**\n\n  Latest updates:\n\n  - Included support for math.js (https://mathjs.org/)\n      e.g math.cross([0, 1, 0], [1, 0, 0])\n\n  - Included support for execution performance tracking\n\n\**/\n\n// Write your code here...\nconst message = \'Hello World\';\nconsole.log(message);',
       output: [],
-      preserve: true
+      preserve: true,
+      execution: 0
     }
   },
   computed: {
@@ -28,8 +29,34 @@ export default {
   methods: {
     execute() {
       try {
+
+        // Start tracking the performance
+        performance.mark('execution-start');
+
         // Execute the code from the input, and parse all console.log to use the log function
-        eval(this.input.replace(/console.log\(/g, 'this.log(\'standard\', '));
+        eval(this.input.replace(/console\.log\(/g, 'this.log(\'standard\', ').replace(/console\.(.*)\(/g, 'this.log(\'$1\', '));
+
+        // Finish tracking the performance
+        performance.mark('execution-finish');
+
+        // Handle errors if the timing has been cleared
+        try { 
+
+          // Measure the execution time 
+          performance.measure('execution', 'execution-start', 'execution-finish'); 
+
+        } catch (e) {}
+
+        // Save the performance time to the data (if possible)
+        this.execution = (performance.getEntriesByName('execution').length > 0) ? performance.getEntriesByName('execution')[0].duration : 0;
+
+        // Log the performance time to the console
+        // this.log('performance', `\nCompleted execution in ${performance.getEntriesByName('execution')[0].duration} seconds\n`);
+
+        // Clear the performance entries
+        performance.clearMarks();
+        performance.clearMeasures();
+
       } catch (error) {
         // Log any errors to the console
         this.log('error', error);

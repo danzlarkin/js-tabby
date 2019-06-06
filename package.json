@@ -1,7 +1,7 @@
 {
   "name": "js-tabby",
   "description": "A Chrome extension to replace your new tabs with a simple javascript codepad and console",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "author": "Daniel Larkin <daniel@larkin.nz>",
   "license": "MIT",
   "private": true,
